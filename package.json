@@ -1,40 +1,46 @@
 {
   "name": "jcycomp",
   "version": "0.1.0",
-  "private": true,
+  "description": "React components library",
+  "author": "jcy",
+  "private": false,
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "types": "build/index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "Component",
+    "UI",
+    "React"
+  ],
+  "files": [
+    "build"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.2.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/classnames": "^2.3.4",
-    "@types/jest": "^27.5.2",
-    "@types/lodash-es": "^4.17.12",
-    "@types/node": "^16.18.126",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@types/react-transition-group": "^4.4.12",
     "async-validator": "^4.2.5",
     "axios": "^1.8.4",
     "classnames": "^2.5.1",
     "lodash-es": "^4.17.21",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-scripts": "5.0.1",
-    "react-transition-group": "^4.4.5",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "react-transition-group": "^4.4.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "clean": "rimraf ./build",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "sass ./src/styles/index.scss ./build/index.css",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -65,13 +71,30 @@
     "@storybook/react": "^8.6.11",
     "@storybook/react-webpack5": "^8.6.11",
     "@storybook/test": "^8.6.11",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/classnames": "^2.3.4",
+    "@types/jest": "^27.5.2",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^16.18.126",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-transition-group": "^4.4.12",
     "eslint-plugin-storybook": "^0.12.0",
     "prop-types": "^15.8.1",
+    "react": "^18.1.0",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-docgen-typescript-plugin": "^1.0.8",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1",
+    "rimraf": "^6.0.1",
     "sass": "^1.86.0",
     "sass-loader": "^16.0.5",
     "storybook": "^8.6.11",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
     "webpack": "^5.98.0"
   }
 }
