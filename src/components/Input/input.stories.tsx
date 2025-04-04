@@ -34,7 +34,7 @@ type Story = StoryObj<StoryProps>
 
 export const DefaultInput: Story = {
   args: {
-    placeholder: '默认的button',
+    placeholder: '默认的input',
   },
   render: (args) => {
     return (
@@ -46,7 +46,7 @@ export const DefaultInput: Story = {
   },
 }
 
-export const DisabledButton: Story = {
+export const DisabledInput: Story = {
   args: {
     disabled: true,
     placeholder: '被禁用的input',
@@ -59,7 +59,7 @@ export const DisabledButton: Story = {
 export const CIcon: Story = {
   name: '有图标的input',
   args: {
-    placeholder: 'icon with button',
+    placeholder: 'icon with input',
     icon: 'search',
   },
   render: (args) => {
